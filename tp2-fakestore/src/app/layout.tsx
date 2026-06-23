@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { CartProvider } from "@/context/CartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,14 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      {/* Agregamos clases para que el footer siempre quede abajo (flex, min-h-screen) */}
       <body className={`${inter.className} min-h-screen flex flex-col bg-gray-50 text-gray-900`}>
-        <Navbar />
-        {/* El main toma el espacio restante flex-grow */}
-        <main className="flex-grow container mx-auto p-4 sm:p-6 lg:p-8">
-          {children}
-        </main>
-        <Footer />
+        <CartProvider>
+          <Navbar />
+          <main className="flex-grow container mx-auto p-4 sm:p-6 lg:p-8">
+            {children}
+          </main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );
