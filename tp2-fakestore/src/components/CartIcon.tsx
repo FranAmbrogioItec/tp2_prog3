@@ -11,9 +11,12 @@ export default function CartIcon() {
   return (
     <Link 
       href="/carrito" 
-      className="bg-blue-600 hover:bg-blue-700 transition-colors px-3 py-1 rounded-md text-sm font-bold flex items-center shadow-sm text-white"
+      className="group relative flex items-center justify-center bg-white/5 hover:bg-white/10 border border-gray-700 hover:border-blue-500/50 px-4 py-2 rounded-xl font-bold shadow-sm hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 text-white"
     >
-      🛒 <span className="ml-2">{totalItems}</span>
+      <span className="text-xl group-hover:scale-110 transition-transform duration-300">🛒</span>
+      <span className="ml-2 text-blue-400 group-hover:text-blue-300 transition-colors">
+        {totalItems}
+      </span>
     </Link>
   );
 }
